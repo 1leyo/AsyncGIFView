@@ -3,6 +3,8 @@ import ImageIO
 
 final class GIFLoader {
     static func load(from url: URL) async throws -> [GIFFrame] {
+        if let cached = await GIFFrameCache.shared.get(url) { return cached }
+        
         let (data, _) = try await URLSession.shared.data(from: url)
         
         guard let frames = decode(data: data) else {
