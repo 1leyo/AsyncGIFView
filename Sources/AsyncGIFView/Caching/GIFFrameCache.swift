@@ -3,8 +3,39 @@ import Foundation
 actor GIFFrameCache {
     static let shared = GIFFrameCache()
     private var store: [URL: [GIFFrame]] = [:]
+    private var accessOrder: [URL] = []
     
-    func get(_ url: URL) -> [GIFFrame]? { store[url] }
-    func set(_ url: URL, frames: [GIFFrame]) { store[url] = frames }
-    func clear() { store.removeAll() }
+    private let maxSize: Int = 30
+    
+    func get(_ url: URL) -> [GIFFrame]? {
+        if let frames = store[url] {
+            updateAccess(for: url)
+            return frames
+        }
+        
+        return nil
+    }
+    
+    func set(_ url: URL, frames: [GIFFrame]) {
+        store[url] = frames
+        updateAccess(for: url)
+        
+        if store.count > maxSize {
+            removeLeastRecentlyUsed()
+        }
+    }
+    
+    func clear() {
+        store.removeAll()
+    }
+    
+    private func updateAccess(for url: URL) {
+        accessOrder.removeAll { $0 == url }
+        accessOrder.insert(url, at: 0)
+    }
+    
+    private func removeLeastRecentlyUsed() {
+        guard let leastUsed = accessOrder.popLast() else { return }
+        store.removeValue(forKey: leastUsed)
+    }
 }
