@@ -11,6 +11,8 @@ final class GIFLoader {
             throw NSError(domain: "GIFLoader", code: 1, userInfo: [NSLocalizedDescriptionKey: "Invalid GIF data"])
         }
         
+        await GIFFrameCache.shared.set(url, frames: frames)
+        
         return frames
     }
     
