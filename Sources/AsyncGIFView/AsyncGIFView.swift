@@ -25,7 +25,8 @@ public struct AsyncGIFView<Content: View, Placeholder: View>: View {
                 placeholder()
             }
         }
-        .task {
+        .task(id: url) {
+            guard frames == nil else { return }
             await loadGIF()
         }
     }
@@ -45,7 +46,7 @@ public struct AsyncGIFView<Content: View, Placeholder: View>: View {
 }
 
 #Preview {
-    let urlString = "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdDhkMmpoc2Jqdm5xeWdtajF5ZXUwYnNmNWEzZm5idjZ4ZWZzZzJqeSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/oNTQZNB67kMf5VHiCj/giphy.gif"
+    let urlString = "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdGl0aXJtaXZiN2I0dTA2cTVtY3FyaXdtNW5vZTZxbWFyN2hlenJnOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/thNsW0HZ534DC/giphy.gif"
     let url = URL(string: urlString)!
     
     VStack {
