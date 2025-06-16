@@ -1,8 +1,9 @@
-//
-//  File.swift
-//  AsyncGIFView
-//
-//  Created by Leo Weimer on 16.06.2025.
-//
-
-import Foundation
+#if DEBUG
+@inline(__always)
+func GIFCacheLog(_ msg: @autoclosure () -> String) {
+    print("[AsyncGIF] \(msg())")
+}
+#else
+@inline(__always)
+func GIFCacheLog(_: @autoclosure () -> String) {}
+#endif

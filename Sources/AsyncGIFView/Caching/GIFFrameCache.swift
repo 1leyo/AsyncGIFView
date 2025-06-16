@@ -9,10 +9,12 @@ actor GIFFrameCache {
     
     func get(_ url: URL) -> [GIFFrame]? {
         if let frames = store[url] {
+            GIFCacheLog("✅ HIT: \(url)")
             updateAccess(for: url)
             return frames
         }
         
+        GIFCacheLog("❌ MISS: \(url)")
         return nil
     }
     
@@ -23,6 +25,8 @@ actor GIFFrameCache {
         if store.count > maxSize {
             removeLeastRecentlyUsed()
         }
+        
+        GIFCacheLog("✅ STORED: \(url) with \(frames.count) frames")
     }
     
     func clear() {
@@ -37,5 +41,6 @@ actor GIFFrameCache {
     private func removeLeastRecentlyUsed() {
         guard let leastUsed = accessOrder.popLast() else { return }
         store.removeValue(forKey: leastUsed)
+        GIFCacheLog("🗑️ Removed least recently used: \(leastUsed)")
     }
 }
