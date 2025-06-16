@@ -26,7 +26,7 @@ public struct AsyncGIFView<Content: View, Placeholder: View>: View {
             }
         }
         .task(id: url) {
-            guard frames == nil else { return }
+            frames = nil
             await loadGIF()
         }
     }
