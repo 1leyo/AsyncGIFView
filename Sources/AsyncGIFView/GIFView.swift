@@ -1,11 +1,20 @@
 import SwiftUI
 
+/// A SwiftUI view that displays a GIF using an already decoded animated GIF _(a sequence of frames)_.
+///
+/// This view is not typically used directly by clients.. It is provided to you inside the `content` closure of the `AsyncGIFView` when you load a GIF from a remote URL.
+///
+/// - Note: The GIF animation starts when the view appears and stops when it disappears.
+/// - Note: Additional functionality like pause/resume is planned for future versions.
 public struct GIFView: View {
     let frames: [GIFFrame]
     
     @State private var currentIndex: Int = 0
     @State private var timer: Timer?
     
+    /// Creates a GIFView with decoded frames.
+    ///
+    /// - Parameter frames: An array of `GIFFrame` values representing each image and its duration.
     public init(frames: [GIFFrame]) {
         self.frames = frames
     }

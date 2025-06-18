@@ -1,5 +1,23 @@
 import SwiftUI
 
+/// A SwiftUI view that asynchronously loads and displays a GIF from a remote URL.
+///
+/// You provide a placeholder view to show while the GIF is loading, and a content closure that receives the loaded `GIFView` for display.
+///
+/// Example usage:
+/// ```swift
+/// AsyncGIFView(url: gifURL) { gif in
+///     gif
+///         .frame(width: 200, height: 200)
+/// } placeholder: {
+///     ProgressView()
+/// }
+/// ```
+///
+/// - Parameters:
+///     - url: The remote URL of the GIF.
+///     - content: A closure that receives the loaded `GIFView` for display.
+///     - placeholder: A closure that returns a view to display while the GIF is loading.
 public struct AsyncGIFView<Content: View, Placeholder: View>: View {
     private let url: URL
     private let content: (GIFView) -> Content
