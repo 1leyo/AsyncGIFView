@@ -1,8 +1,6 @@
 # AsyncGIFView
 A lightweight Swift Package to load and render animated GIFs asynchronously in SwiftUI on macOS and iOS.
 
----
-
 ## ✨ Features
 
 - 🔁 Asynchronous GIF loading via URL
@@ -11,8 +9,6 @@ A lightweight Swift Package to load and render animated GIFs asynchronously in S
 - 🖼️ Works out-of-the-box with placeholder support
 - 🍎 Supports iOS & macOS
 
----
-
 ## 🚀 Installation
 
 Add the package to your project via **Swift Package Manager**:
@@ -20,8 +16,6 @@ Add the package to your project via **Swift Package Manager**:
 ```
 https://github.com/1leyo/AsyncGIFView.git
 ```
-
----
 
 ## 🧪 Example Usage
 
@@ -33,8 +27,6 @@ AsyncGIFView(url: gifURL) { gif in
     ProgressView()
 }
 ```
-
----
 
 ## 📦 API Overview
 
@@ -58,14 +50,10 @@ A view that plays pre-decoded frames. Used internally and passed to you by `Asyn
 
 **Note**: This view will be fully available in the future, allowing loading GIFs from the asset catalog or local files.
 
----
-
 ## 🧹 Limitations
 
 - Only supports remote GIFs at the moment
 - No playback controls _(e.g. pause/resume)_ yet
-
----
 
 ## 🧪 Tests
 
@@ -75,21 +63,15 @@ Run the test suite using:
 swift test
 ```
 
----
-
 ## 📄 License
 
 [MIT License](./LICENSE)
-
----
 
 ## 🔮 Roadmap
 
 - [ ] Local GIF loading (from bundle)
 - [ ] Pause / resume / loop count
 - [ ] Performance tuning for large GIFs
-
----
 
 ## 🙌 Credits & Motivation
 
