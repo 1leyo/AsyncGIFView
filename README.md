@@ -1,4 +1,9 @@
 # AsyncGIFView
+
+[![Version](https://img.shields.io/github/v/tag/1leyo/AsyncGIFView?label=version)](https://github.com/1leyo/AsyncGIFView/releases)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+![Swift](https://img.shields.io/badge/swift-6.0-orange)
+
 A lightweight Swift Package to load and render animated GIFs asynchronously in SwiftUI on macOS and iOS.
 
 ## ✨ Features
@@ -12,9 +17,17 @@ A lightweight Swift Package to load and render animated GIFs asynchronously in S
 ## 🚀 Installation
 
 Add the package to your project via **Swift Package Manager**:
-
 ```
-https://github.com/1leyo/AsyncGIFView.git
+https://github.com/1leyo/AsyncGIFView
+```
+
+### 📦 Using Package.swift
+
+If you want to use `Package.swift` directly, simply add it to the `dependencies` section:
+```swift
+dependencies: [
+    .package(url: "https://github.com/1leyo/AsyncGIFView.git", from: "0.0.1")
+]
 ```
 
 ## 🧪 Example Usage
@@ -62,10 +75,6 @@ Run the test suite using:
 ```bash
 swift test
 ```
-
-## 📄 License
-
-[MIT License](./LICENSE)
 
 ## 🔮 Roadmap
 
