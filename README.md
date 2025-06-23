@@ -1,8 +1,8 @@
-# AsyncGIFView
-
 [![Version](https://img.shields.io/github/v/tag/1leyo/AsyncGIFView?label=version)](https://github.com/1leyo/AsyncGIFView/releases)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 ![Swift](https://img.shields.io/badge/swift-6.0-orange)
+
+# AsyncGIFView
 
 A lightweight Swift Package to load and render animated GIFs asynchronously in SwiftUI on macOS and iOS.
 
